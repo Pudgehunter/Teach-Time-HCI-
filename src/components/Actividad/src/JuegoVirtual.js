@@ -1,3 +1,4 @@
+import { finished } from "stream";
 import imgUtil from "./utilImg";
 
 class JuegoVirtual {
@@ -73,7 +74,7 @@ class JuegoVirtual {
 
         app.image(this.bg, 0, 0);
 
-        console.log(app.mouseX, app.mouseY);
+        //console.log(app.mouseX, app.mouseY);
 
         //Validando esa vaina del profesor
         switch (this.pantallaFeedbacks) {
@@ -102,7 +103,7 @@ class JuegoVirtual {
                         break;
                     case 4:
                         app.textSize(48);
-                        app.text(this.puntajesProfe, 600, 402);
+                        app.text(this.puntajesProfe, 600, 372);
                         break;
                 }
 
@@ -355,6 +356,14 @@ class JuegoVirtual {
                     this.responderBoolean = true;
                 }
                 break;
+                case 4:
+                    if (app.mouseX > 529 && app.mouseX <= 529 + 200 && app.mouseY > 400 && app.mouseY <= 400 + 63 && this.responderBoolean == false && this.pages == 10){
+                        console.log("funciono para apagar");
+                        this.actividad.addResult([{id:"LICENCIATURA", value: this.puntajes}]);
+                        this.actividad.addState("estadoDePaciente","true");
+                        this.actividad.finish();
+                    }
+                    break;
         }
 
         //Los click para las notas
@@ -536,7 +545,7 @@ class JuegoVirtual {
                     break;
                 case 4:
                     this.preguntas = 4;
-
+                    
                     this.bg = app.loadImage(imgUtil.end);
                     break;
             }
