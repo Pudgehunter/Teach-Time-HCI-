@@ -103,7 +103,7 @@ class JuegoVirtual {
                         break;
                     case 4:
                         app.textSize(48);
-                        app.text(this.puntajesProfe, 600, 372);
+                        app.text(this.puntajesProfe*2, 600, 372);
                         break;
                 }
 
@@ -359,7 +359,7 @@ class JuegoVirtual {
                 case 4:
                     if (app.mouseX > 529 && app.mouseX <= 529 + 200 && app.mouseY > 400 && app.mouseY <= 400 + 63 && this.responderBoolean == false && this.pages == 10){
                         console.log("funciono para apagar");
-                        this.actividad.addResult([{id:"LICENCIATURA", value: this.puntajes}]);
+                        this.actividad.addResult([{id:"LICENCIATURA", value: this.puntajesProfe*2}]);
                         this.actividad.addState("estadoDePaciente","true");
                         this.actividad.finish();
                     }
